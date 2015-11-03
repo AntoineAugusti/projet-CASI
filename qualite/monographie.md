@@ -22,9 +22,9 @@ Le département ASI a développé un système, qu'on appellera FAKE, basé sur d
 
 ### A2
 
-* [Docker](https://www.docker.com/)
-* [Travis CI](https://travis-ci.org/)
-* [Jenkins CI](https://jenkins-ci.org)
+* [How Clay.Io Built Their 10x Architecture Using AWS, Docker, HAProxy, And Lots More](http://highscalability.com/blog/2014/10/6/how-clayio-built-their-10x-architecture-using-aws-docker-hap.html)
+* [Building a Continuous Integration Pipeline with Docker](https://www.docker.com/sites/default/files/UseCase/RA_CI%20with%20Docker_08.25.2015.pdf)
+* [Faster Builds with Container-Based Infrastructure and Docker](http://blog.travis-ci.com/2014-12-17-faster-builds-with-container-based-infrastructure/)
 
 ### A3
 
@@ -60,6 +60,7 @@ Google est derrière Kubernetes, un gestionnaire open source de conteneurs. Ce d
     + Number of datastructures
     + Nombre de systèmes d'exploitation supporté
 
+
 * Installability
     + Number of installation steps
     + Number of setup operations
@@ -69,7 +70,7 @@ Google est derrière Kubernetes, un gestionnaire open source de conteneurs. Ce d
     + Number of failures
     + Number of test cases
     + Nombre de Single Point of Failure
-
+    
 ### A7
 
 ## Partie B
