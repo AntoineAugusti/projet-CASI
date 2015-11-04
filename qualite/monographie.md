@@ -59,17 +59,20 @@ Google est derrière Kubernetes, un gestionnaire open source de conteneurs. Ce d
     + Number of functions
     + Number of datastructures
     + Nombre de systèmes d'exploitation supporté
+    + Operation time / number of functions
 
 
 * Installability
     + Number of installation steps
     + Number of setup operations
     + Nombre de pages de la documentation d'installation
+    + Number of step / number of setup operations = number of steps by setup operation
 
 * Fault tolerance
     + Number of failures
     + Number of test cases
     + Nombre de Single Point of Failure
+    + Number of failure + Number of breakdowns * 10
     
 ### A7
 
