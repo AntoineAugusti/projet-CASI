@@ -1,0 +1,25 @@
+\documentclass[a4paper, 12pt, french]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[babel=true]{csquotes}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{fancyhdr}
+\usepackage{fullpage}
+\usepackage{float}
+
+% Weird UTF8 bug
+\DeclareUnicodeCharacter{00A0}{ }
+
+\title{\textit{Containerization of software}}
+\author{Manon Ansart et Antoine Augusti -- Équipe \textsc{poodle}}
+\date{}
+
+\begin{document}
+    \maketitle
+
+    \section*{Partie A}
+        \input{src/partieA}
+\end{document}
