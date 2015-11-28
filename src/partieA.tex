@@ -10,7 +10,7 @@ Le département ASI a développé un système, qu'on appellera FAKE, basé sur d
     \begin{figure}[h]
       \centering
       \includegraphics[width=0.8\textwidth]{images/vms-containers.jpg}
-      \caption{Différences entre machine virtuelles et conteneurs. Crédit : \url{http://fossbytes.com/getting-started-with-docker-intro-to-containers-world-part-1/}}
+      \caption{Différences entre machine virtuelles et conteneurs. Crédit : \url{https://www.docker.com/what-docker}}
       \label{fig:vms-containers}
     \end{figure}
 
@@ -50,7 +50,7 @@ Le département ASI a développé un système, qu'on appellera FAKE, basé sur d
     \subsubsection*{Travis CI}
     Travis CI est une plateforme d'intégration continue qui permet de packager et de tester des logiciels qui sont hébergés sur GitHub. Travis CI détecte dès qu'un commit a été push sur GitHub et lancera alors une suite de commandes, paramétrables grâce à un fichier de configuration écrit en YAML nommé \texttt{.travis.yml}.\\
 
-    Travis CI s'appuie sur l'infrastructure d'Amazon Web Services et utilise des conteneurs Docker pour exécuter les tests. Travis CI Pro offre les mêmes fonctionnalités que la version gratuite de Travis CI, mais pour les répertoires privés hébergés sur GitHub.
+    Travis CI s'appuie sur l'infrastructure d'Amazon Web Services et utilise des conteneurs Docker pour exécuter les tests. Travis CI Pro offre les mêmes fonctionnalités que la version gratuite de Travis CI, mais pour les répertoires privés hébergés sur GitHub -- l'intégration continue est alors payante.
 
     \subsubsection*{Docker}
     Docker est un logiciel libre qui automatise le déploiement d'applications dans des conteneurs logiciels. Selon la firme de recherche sur l'industrie 451 Research, « Docker est un outil qui peut empaqueter une application et ses dépendances dans un conteneur virtuel, qui pourra être exécuté sur n'importe quel serveur Linux ».\\
@@ -59,6 +59,9 @@ Le département ASI a développé un système, qu'on appellera FAKE, basé sur d
 
     \subsubsection*{Kubernetes}
     Google est derrière Kubernetes, un gestionnaire open source de conteneurs. Ce dernier permet de déployer des conteneurs sur un lot de machines, d’en surveiller le bon fonctionnement et d’assurer leur réplication. Une offre idéale pour administrer des conteneurs Linux sur une infrastructure de type cloud public. Microsoft s'est assuré que Kubernetes fonctionne bien sur Azure, Red Hat a fait de même. Docker et CoreOS assurent également la compatibilité avec Kubernetes et se sont engagés à assurer la compatibilité dans le futur, avec l'aide entre autre d'IBM.
+
+    \subsubsection*{Microsoft Drawbridge}
+    Le projet n'est pas encore public, mais Microsoft a annoncé travaillé sur sa solution de conteneurs, qui sera disponible sous Azure dans un futur plus ou moins proche. Un article du blog de recherche de Microsoft présente brièvement ce projet: \url{http://research.microsoft.com/en-us/projects/drawbridge/}.
 
 \subsection*{A5}
     \begin{itemize}
