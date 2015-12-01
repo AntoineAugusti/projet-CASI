@@ -61,7 +61,7 @@ Le département ASI a développé un système, qu'on appellera FAKE, basé sur d
     Google est derrière Kubernetes, un gestionnaire open source de conteneurs. Ce dernier permet de déployer des conteneurs sur un lot de machines, d’en surveiller le bon fonctionnement et d’assurer leur réplication. Une offre idéale pour administrer des conteneurs Linux sur une infrastructure de type cloud public. Microsoft s'est assuré que Kubernetes fonctionne bien sur Azure, Red Hat a fait de même. Docker et CoreOS assurent également la compatibilité avec Kubernetes et se sont engagés à assurer la compatibilité dans le futur, avec l'aide entre autre d'IBM.
 
     \subsubsection*{Microsoft Drawbridge}
-    Le projet n'est pas encore public, mais Microsoft a annoncé travaillé sur sa solution de conteneurs, qui sera disponible sous Azure dans un futur plus ou moins proche. Un article du blog de recherche de Microsoft présente brièvement ce projet: \url{http://research.microsoft.com/en-us/projects/drawbridge/}.
+    Le projet n'est pas encore public, mais Microsoft a annoncé travailler sur sa solution de conteneurs, qui sera disponible sous Azure dans un futur plus ou moins proche. Un article du blog de recherche de Microsoft présente brièvement ce projet: \url{http://research.microsoft.com/en-us/projects/drawbridge/}.
 
 \subsection*{A5}
     \begin{itemize}
@@ -98,5 +98,5 @@ Le département ASI a développé un système, qu'on appellera FAKE, basé sur d
         \item \textbf{Le conteneur de base}: la plupart des logiciels de conteneur supportent l'héritage, c'est-à-dire que d'autres conteneurs peuvent reprendre le template de base d'un container dit \enquote{de base}. Ce conteneur peut par exemple permettre de définir le système d'exploitation, installer des paquets communs, définir un utilisateur Unix et son répertoire home.
         \item \textbf{Le conteneur d'outils de développement}: pour ne pas \enquote{salir} un environnement sain, il est commun de créer un conteneur dédié au développement ou à l'expérimentation, ou un nombre important de paquets sera installé, dont certains peuvent être expérimentaux.
         \item \textbf{Le conteneur dédié au build}: le packaging ou la compilation d'applications est souvent une étape coûteuse mais cruciale dans le cycle de vie et de déploiement d'un application. C'est pourquoi un conteneur dédié à cette étape fait souvent sens, encore plus si le build est complexe: versionnage, minification, vérification de syntaxe de certains éléments par exemple.
-        \item \textbf{Le conteneur dans avec un environnement différent}: permet de tester comment se comporte le système avec une ou plusieurs versions différentes de paquets de celle de la production ou dans un environnement dégradé (réseau lent, perte de paquets\dots).
+        \item \textbf{Le conteneur avec un environnement différent}: permet de tester comment se comporte le système avec une ou plusieurs versions différentes de paquets de celle de la production ou dans un environnement dégradé (réseau lent, perte de paquets\dots).
     \end{itemize}
