@@ -5,8 +5,10 @@ clean:
 
 compil:
 	pdflatex monographie.tex
+	bibtex monographie
 	pdflatex monographie.tex
-	rm -f *.aux *.log *.out
+	pdflatex monographie.tex
+	rm -f *.aux *.log *.out *.bbl *.blg
 
 run: clean compil
 	open monographie.pdf
