@@ -1,0 +1,83 @@
+% Consignes pour la soutenance
+\documentclass[handout]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+% Pour pouvoir insérer des images
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{csquotes}
+\usepackage{multicol}
+
+
+\graphicspath{images/}
+% Gestion des couleurs
+\usepackage{color}
+\definecolor{red}{RGB}{231, 76, 60}
+
+% Un joli thème flat
+\usetheme{Rochester}
+
+% Personnalisation du thème
+\usecolortheme[named=red]{structure}
+% Numéro de slides dans le footer
+\setbeamertemplate{footline}[frame number]
+\setbeamertemplate{blocks}[shadow=false]
+
+\title{
+    \textit{Containerization of software}
+}
+\author{
+    Manon \textsc{Ansart} \& Antoine \textsc{Augusti}
+}
+\date{6 janvier 2016}
+
+\setbeamertemplate{footline}
+{
+    \leavevmode%
+    \hbox{%
+    \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+        \usebeamerfont{author in head/foot}\insertsection
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+        \usebeamerfont{title in head/foot}\insertsubsection
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+        \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+        \insertframenumber{} / \inserttotalframenumber\hspace*{2ex}
+    \end{beamercolorbox}}%
+    \vskip0pt%
+}
+
+% Début du document
+\begin{document}
+
+    % Génération de la page de titre
+    \begin{frame}[plain]
+        \titlepage
+    \end{frame}
+
+    % Génération du sommaire
+    \begin{frame}[plain]
+        \frametitle{Sommaire}
+        \tableofcontents
+    \end{frame}
+
+    \section{Contexte}
+        \input{src/contexte}
+
+    \section{Critères qualité surveillés}
+        \input{src/qualite}
+
+    \section{Patterns identifiés}
+        \input{src/patterns}
+
+    \section{Solutions comparées}
+        \input{src/solutions}
+
+    \section{Prototype réalisé}
+        \input{src/proto}
+
+% Fin du document
+\end{document}
