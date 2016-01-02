@@ -4,11 +4,8 @@ clean:
 	rm -f monographie.pdf
 
 compil:
-	pdflatex monographie.tex
-	bibtex monographie
-	pdflatex monographie.tex
-	pdflatex monographie.tex
-	rm -f *.aux *.log *.out *.bbl *.blg
+	rubber -d monographie.tex
+	rm -f monographie.aux monographie.log monographie.out monographie.bbl monographie.blg monographie.toc
 
 run: clean compil
 	open monographie.pdf

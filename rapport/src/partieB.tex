@@ -1,6 +1,6 @@
-\subsection*{B1}
-    \subsubsection*{Les besoins qui ont mené à l'émergence des containers}
-        Le besoin d'une solution technique telle que les containers provient de plusieurs demandes:
+\subsection{B1}
+    \subsubsection{Les besoins qui ont mené à l'émergence des containers}
+        Le besoin d'une solution technique telle que les containers provient de plusieurs demandes\cite{realWorldDocker}:
         \begin{itemize}
             \item \textbf{La simplification de la configuration}: la plupart des applications sont déployées dans le cloud aujourd'hui, et les entreprises peuvent être amenées à changer de fournisseur d'infrastructure (IaaS) ou de plateforme (PaaS) durant leur vie. Ceci est en partie possible grâce aux machines virtuelles, mais leur consommation de ressources est très importante et la répétabilité de la construction de telles machines n'est pas souvent aisée;
             \item \textbf{Un environnement constant dans la chaîne de livraison}: de la machine d'un développeur à la production, le code s'exécute dans plusieurs environnements, parfois chez différents prestataires. Chaque environnement (développement, test, QA, staging, production\dots) possède sa part de changements mineurs qui peuvent avoir un impact sur le comportement de l'application finale. Ici le besoin est une infrastructure immutable, que l'on peut reproduire facilement;
@@ -11,7 +11,7 @@
             \item \textbf{Versionnage et partage de l'infrastructure}. Les gestionnaires de version sont désormais habituels dans le monde de l'ingénierie logicielle. Se pose alors la question: pourquoi n'est-il pas possible de pouvoir partager des éléments d'infrastructure, de description des composants, des services des paquets dans des fichiers de configuration. On parle souvent d'\enquote{\textit{Infrastructure as code}}. Comme pour les gestionnaires de version, l'envie de pouvoir télécharger des descriptions d'infrastructure créées par d'autres personnes se faire sentir, pour éviter que chacun ne réinvente la roue de son côté.
         \end{itemize}
 
-     \subsubsection*{Approche technique des containers}
+     \subsubsection{Approche technique des containers}
         Pour répondre au besoin de déploiement rapide et à la consommation faible en ressources, les containers prennent le contre pied des pieds virtuelles et ne cherchent pas à reproduire une machine physique.\\
 
         Les machines virtuelles permettent de simuler une machine physique et donc de faire tourner une application de très bas niveau à savoir un système d'exploitation de son choix. Grâce à cela, une machine physique sous un système d'exploitation peut faire tourner plusieurs machines virtuelles avec chacun son propre système d'exploitation et son ensemble applicatif. Cette solution est relativement performante si elle repose sur des fonctions matérielles (architecture physique compatible et si possible avec instruction AMD-V, VT-d, VT-x\dots) car sinon il faut opérer par émulation (perte de près de 50\% des performances CPU lors d'émulation de x86 sur PowerPC)\cite{ipponDocker}. Les machines virtuelles sont souvent considérées comme sécurisées car il n'y a pas de communication directe entre machine virtuelles et la machine hôte.\\
@@ -26,32 +26,32 @@
 
         Enfin, même s'il est souvent possible de définir quelques éléments de configuration dans les containers (système d'exploitation, paquets à installer, utilisateurs à créer), ceux-ci ne cherchent pas à remplacer des gestionnaires de configuration comme Chef, Puppet ou Ansible qui offrent bien plus de possibilités.
 
-\subsection*{B2}
+\subsection{B2}
 
-    \subsubsection*{Docker}
+    \subsubsection{Docker}
     Docker est un logiciel libre qui automatise le déploiement d'applications dans des conteneurs logiciels. Selon la firme de recherche sur l'industrie 451 Research, « Docker est un outil qui peut empaqueter une application et ses dépendances dans un conteneur virtuel, qui pourra être exécuté sur n'importe quel serveur Linux ».\\
 
     La technologie de conteneur de Docker peut être utilisée pour étendre des systèmes distribués de façon à ce qu'ils s'exécutent de manière autonome depuis une seule machine physique ou une seule instance par nœud. Cela permet aux nœuds d'être déployés au fur et à mesure que les ressources sont disponibles, offrant un déploiement transparent et similaire aux PaaS pour des systèmes comme Apache Cassandra, Riak ou d'autres systèmes distribués.
 
-    \subsubsection*{Kubernetes}
+    \subsubsection{Kubernetes}
     Google est derrière Kubernetes, un gestionnaire open source de conteneurs. Ce dernier permet de déployer des conteneurs sur un lot de machines, d’en surveiller le bon fonctionnement et d’assurer leur réplication. Une offre idéale pour administrer des conteneurs Linux sur une infrastructure de type cloud public. Microsoft s'est assuré que Kubernetes fonctionne bien sur Azure, Red Hat a fait de même. Docker et CoreOS assurent également la compatibilité avec Kubernetes et se sont engagés à assurer la compatibilité dans le futur, avec l'aide entre autre d'IBM.
 
-    \subsubsection*{OpenVZ}
+    \subsubsection{OpenVZ}
     OpenVZ est un système de virtualisation pour Linux basé sur des conteneurs. OpenVZ permet à un même serveur physique de faire tourner plusieurs instances, isolées, d'un système d'exploitation. Tous les conteneurs OpenVZ doivent alors partager la même architecture et la même version de kernel. Ainsi cette méthode de virtualisation offre de meilleures performances et un meilleur changement d'échelle que ses concurrents classiques de virtualisation tels que VMware, n'utilisant pas la notion de conteneurs.
 
-    \subsubsection*{runC}
+    \subsubsection{runC}
     RunC est un outil de lignes de commandes permettant de créer et de lancer des conteneurs. RunC implémente le standard OCF (Open Container Format). C'est un wrapper autour de libcontainer, qui a été donné par Docker au Open Container Project afin de servir d'implémentation de référence. RunC peut faire tourner des images de Docker sans lancer de deamon Docker.
 
 
-    \subsubsection*{Choix de deux solutions}
+    \subsubsection{Choix de deux solutions}
     Les solutions que nous avons choisies pour la suite du projet sont Docker et runC.
 
-\subsection*{B3}
+\subsection{B3}
     Une description générale de Docker et runC a déjà été effectuée dans les parties A4 et B2.\\
 
     Docker et runC fonctionnent tous les deux à l'aide de fichiers textes de configuration, ce qui facilite le partage et le versionnage des outils de travail. Ces deux logiciels supportent l'héritage: c'est-à-dire que l'on peut créer un nouveau conteneur à partir d'un conteneur parent. Docker propose de partager des images de conteneurs déjà construits et configurables sur Docker Hub. Ces images peuvent être alors être téléchargées, étendues ou configurées pour répondre aux besoins. Les deux outils possèdent également un système d'utilisation du cache lors du build.
 
-\subsection*{B4}
+\subsection{B4}
     Les métriques retenues pour comparer les deux solutions choisies sont:
     \begin{itemize}
         \item Number of failures (correspondant aux facteurs qualité Resource utilization et Fault tolerance)
@@ -59,16 +59,16 @@
         \item CPU (correspondant au facteur qualité Resource utilization)
         \item Number of installation steps (correspondant au facteur qualité Installability)
         \item Number of setup operations (correspondant au facteur qualité Installability)
-        \item Number of step / number of setup operations = number of steps by setup operation (correspondant au facteur qualité Installability)
+        \item Number of steps / number of setup operations = number of steps by setup operation (correspondant au facteur qualité Installability)
         \item Number of test cases (correspondant au facteur qualité et Fault tolerance)
         \item Number of failure + Number of breakdowns x 10 (correspondant au facteur qualité et Fault tolerance)
     \end{itemize}
 
-\subsection*{B5}
+\subsection{B5}
 
     \begin{figure}[H]
-            \centering
-            \includegraphics[width=\textwidth]{images/WBS.png}
-            \caption{Work Breakdown Structure pour la réalisation des prototypes}
-            \label{fig:wbs}
+        \centering
+        \includegraphics[width=\textwidth]{images/WBS.png}
+        \caption{Work Breakdown Structure pour la réalisation des prototypes}
+        \label{fig:wbs}
     \end{figure}

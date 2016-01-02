@@ -1,4 +1,4 @@
-\documentclass[a4paper, 12pt, french, titlepage]{scrartcl}
+\documentclass[a4paper, 12pt, french, titlepage]{scrreprt}
 \usepackage[utf8]{inputenc}
 \usepackage[french]{babel}
 \usepackage[T1]{fontenc}
@@ -9,6 +9,8 @@
 \usepackage{fancyhdr}
 \usepackage{fullpage}
 \usepackage{float}
+
+\setcounter{tocdepth}{2}
 
 % Weird UTF8 bug
 \DeclareUnicodeCharacter{00A0}{ }
@@ -21,14 +23,20 @@
 \begin{document}
     \maketitle
 
-    \section*{Partie A}
-        \input{src/partieA}
+    \tableofcontents
+    \chapter{Monographie}
+        \section{Partie A}
+            \input{src/partieA}
 
-    \section*{Partie B}
-        \input{src/partieB}
+        \section{Partie B}
+            \input{src/partieB}
 
-    \section*{Partie C}
-        \input{src/partieC}
+        \section{Partie C}
+            \input{src/partieC}
+
+    \chapter{Prototypes}
+        \section{Prototype basé sur Docker}
+            \input{src/protoDocker}
 
     \bibliographystyle{plain}
     \bibliography{bib}
