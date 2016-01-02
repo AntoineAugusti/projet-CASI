@@ -1,0 +1,12 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+- ./deployBroker.sh
+
+script:
+# Admin console is accessible
+- nc -z 127.0.0.1 8161
+# ActiveMQ broker is accessible
+- nc -z 127.0.0.1 61616

@@ -1,0 +1,50 @@
+@startuml
+' http://www.planttext.com/planttext pour compiler
+' http://plantuml.com/deployment.html
+
+skinparam shadowing false
+
+skinparam note {
+  BackgroundColor #73AE42
+  BorderColor #6CA43E
+  FontColor white
+}
+
+skinparam agent {
+  BackgroundColor #EEEEEE
+  ArrowColor #758A9F
+  BorderColor #e74c3c
+}
+
+skinparam component {
+  BackgroundColor #EEEEEE
+  ArrowColor #758A9F
+  BorderColor #2ecc71
+}
+
+skinparam node {
+  BackgroundColor #FFFFFF
+  ArrowColor #758A9F
+}
+
+skinparam frame {
+  BorderColor #9E9E9E
+}
+
+left to right direction
+
+node SystèmeFAKE {
+  frame ConteneurDockerA {
+    agent ApplicationA
+  }
+  frame ConteneurDockerB {
+    agent ApplicationB
+  }
+  frame ConteneurDockerC {
+    component BrokerJMS
+  }
+  ApplicationA -- BrokerJMS : "Communication TCP/IP"
+  ApplicationB -- BrokerJMS : "Communication TCP/IP"
+  note "Les conteneurs Docker peuvent être hébergés sur la même machine ou non" as N01
+}
+@enduml
